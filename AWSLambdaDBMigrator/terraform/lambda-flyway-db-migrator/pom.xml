@@ -1,0 +1,107 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+   <parent>
+        <groupId>io.micronaut</groupId>
+        <artifactId>micronaut-parent</artifactId>
+        <version>3.8.5</version>
+   </parent>
+   
+  <groupId>scot.gov.are.aws.cpt</groupId>
+  <artifactId>lambda-flyway-db-migrator</artifactId>
+  <packaging>jar</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>lambda-flyway-db-migrator</name>
+  <url>http://maven.apache.org</url>
+  
+   <properties>
+        <packaging>jar</packaging>
+        <exec.mainClass>io.micronaut.function.aws.runtime.MicronautLambdaRuntime</exec.mainClass>
+        <micronaut.runtime>lambda</micronaut.runtime><!--lambda , netty-->
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <micronaut.version>3.8.5</micronaut.version>
+        <micronaut.aws.version>3.14.0</micronaut.aws.version>
+        <micronaut.flyway.version>5.4.1</micronaut.flyway.version>
+        <postgresql.version>42.5.1</postgresql.version>
+    </properties>
+    <profiles>
+        <profile>
+            <id>local</id>
+            <properties>
+                <exec.mainClass>scot.gov.are.aws.cpt.App</exec.mainClass>
+            </properties>
+        </profile>
+    </profiles>
+    
+  <dependencies>
+    <dependency>
+            <groupId>io.micronaut.aws</groupId>
+            <artifactId>micronaut-aws-secretsmanager</artifactId>
+            <version>${micronaut.aws.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.micronaut.aws</groupId>
+            <artifactId>micronaut-function-aws-api-proxy</artifactId>
+           <version>${micronaut.aws.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.micronaut</groupId>
+            <artifactId>micronaut-runtime</artifactId>
+            <version>${micronaut.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${postgresql.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.micronaut.aws</groupId>
+            <artifactId>micronaut-function-aws</artifactId>
+            <version>${micronaut.aws.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.micronaut.flyway</groupId>
+            <artifactId>micronaut-flyway</artifactId>
+            <version>${micronaut.flyway.version}</version>
+            <scope>compile</scope>
+        </dependency>
+   
+  </dependencies>
+  
+ <build>
+   <plugins>
+            <plugin>
+                <groupId>io.micronaut.build</groupId>
+                <artifactId>micronaut-maven-plugin</artifactId>
+                <version>3.5.2</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.9.0</version>
+
+                <configuration>
+                    <compilerVersion>${maven.compiler.target}</compilerVersion>
+                    <useIncrementalCompilation>false</useIncrementalCompilation>
+                    <compilerArgs>
+                        <arg>-Amicronaut.processing.group=scot.gov.are.aws.cpt</arg>
+                        <arg>-Amicronaut.processing.module=lambda-flyway-db-migrator</arg>
+                    </compilerArgs>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                </configuration>
+            </plugin>
+     </plugins>
+</build>
+</project>
