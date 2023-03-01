@@ -1,7 +1,7 @@
 DROP ROLE IF EXISTS ro_role;
 CREATE ROLE ro_role;
 GRANT USAGE ON SCHEMA dbmigrator TO ro_role;
-GRANT SELECT ON ALLTABLES IN SCHEMA dbmigrator TO ro_role;
+GRANT SELECT ON ALL TABLES IN SCHEMA dbmigrator TO ro_role;
 
 DROP ROLE IF EXISTS rw_role;
 CREATE ROLE rw_role;
