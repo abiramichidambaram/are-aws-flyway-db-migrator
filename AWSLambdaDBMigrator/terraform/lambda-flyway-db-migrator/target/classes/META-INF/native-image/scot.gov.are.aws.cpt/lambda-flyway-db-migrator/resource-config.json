@@ -17,5 +17,7 @@
     "pattern" : "\\Qapplication.yml\\E"
   }, {
     "pattern" : "\\Qdb/migration/V1677494690__createRoles.sql\\E"
+  }, {
+    "pattern" : "\\Qlog4j.properties\\E"
   } ]
 }

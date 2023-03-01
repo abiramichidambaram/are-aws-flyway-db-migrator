@@ -17,7 +17,6 @@ flyway:
   datasources:
     default:
       enabled: true
-      mixed: true
       clean-schema: ${DB_RUNTIME_CLEAN_SCHEMA:`true`}   # "true" for test and development purpose only
       url: jdbc:postgresql://${application.db.flyway.host}:${application.db.flyway.port}/${application.db.flyway.db-name}?sslmode=${application.db.flyway.sslmode}
       username: ${application.db.flyway.username}

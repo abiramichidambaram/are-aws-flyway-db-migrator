@@ -13,6 +13,5 @@ rds_database={
   db_name="postgres"
   port=5432
 }
-
 clean_schema=true
 init_sql="drop schema if exists dbmigrator cascade"

@@ -1,9 +1,9 @@
 DROP ROLE IF EXISTS ro_role;
-create role ro_role;
-grant usage on schema dbmigrator to ro_role;
-grant select on all tables in schema dbmigrator to ro_role;
+CREATE ROLE ro_role;
+GRANT USAGE ON SCHEMA dbmigrator TO ro_role;
+GRANT SELECT ON ALLTABLES IN SCHEMA dbmigrator TO ro_role;
 
 DROP ROLE IF EXISTS rw_role;
-create role rw_role;
-grant usage on schema dbmigrator to rw_role;
-grant select,update,delete,insert on all tables in schema dbmigrator to rw_role;
+CREATE ROLE rw_role;
+GRANT USAGE ON SCHEMA dbmigrator TO rw_role;
+GRANT SELECT,UPDATE,DELETE,INSERT ON ALL TABLES IN SCHEMA dbmigrator TO rw_role;
