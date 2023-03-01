@@ -9,7 +9,6 @@ variable "lambda_map" {
       secret_manager_enabled= true
     }
   }
-}
 
 variable "rds_database" {
   type = object({
