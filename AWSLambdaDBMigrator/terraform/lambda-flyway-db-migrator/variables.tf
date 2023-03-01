@@ -4,7 +4,7 @@ variable "lambda_map" {
     db_migrator_lambda = {
       memory_size    = 2048
       name           = "flyway-db-migrator"
-      source_path    = "lambda-flyway-db-migrator-0.0.1-SNAPSHOT.jar"
+      source_path    = "target/lambda-flyway-db-migrator-0.0.1-SNAPSHOT.jar"
       fileName       = "lambda-flyway-db-migrator-0.0.1-SNAPSHOT.jar"
       lambda_handler = "io.micronaut.function.aws.proxy.MicronautLambdaHandler"
       secret_manager_enabled= true
