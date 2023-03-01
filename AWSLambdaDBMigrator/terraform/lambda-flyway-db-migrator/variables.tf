@@ -1,20 +1,9 @@
 variable "lambda_map" {
   type = map(any)
-  
-   default = {
-    notifier_lambda = {
-      memory_size    = 1024
-      name           = "notifier"
-      source_path    = "target/notifier-0.0.1-SNAPSHOT.jar"
-      fileName       = "notifier-0.0.1-SNAPSHOT.jar"
-      lambda_handler = "scot.gov.are.pp.serverless.function.notifier.EventRequestHandler"
-      secret_manager_enabled= true
-    }
-  
-  db_migrator_lambda = {
+    db_migrator_lambda = {
       memory_size    = 2048
-      name           = "db-migrator"
-      source_path    = "target/lambda-flyway-db-migrator-0.0.1-SNAPSHOT.jar"
+      name           = "flyway-db-migrator"
+      source_path    = "are-aws-lambda-deployment-bucket/lambda-flyway-db-migrator-0.0.1-SNAPSHOT.jar"
       fileName       = "lambda-flyway-db-migrator-0.0.1-SNAPSHOT.jar"
       lambda_handler = "io.micronaut.function.aws.proxy.MicronautLambdaHandler"
       secret_manager_enabled= true
