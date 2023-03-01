@@ -23,6 +23,6 @@ flyway:
       password: ${application.db.flyway.password}
       schemas: dbmigrator
       locations:
-        - s3:are-aws-lambda-deployment-bucket
+        - s3://are-aws-lambda-deployment-bucket
       init-sql: ${DB_RUNTIME_INIT_SQL:} # "drop schema if exists ps cascade" for test and development purpose only
       out-of-order: true
