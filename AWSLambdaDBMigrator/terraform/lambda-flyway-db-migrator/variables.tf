@@ -1,5 +1,6 @@
 variable "lambda_map" {
   type = map(any)
+  default = {
     db_migrator_lambda = {
       memory_size    = 2048
       name           = "flyway-db-migrator"
@@ -7,6 +8,7 @@ variable "lambda_map" {
       fileName       = "lambda-flyway-db-migrator-0.0.1-SNAPSHOT.jar"
       lambda_handler = "io.micronaut.function.aws.proxy.MicronautLambdaHandler"
       secret_manager_enabled= true
+      }
     }
   }
 
