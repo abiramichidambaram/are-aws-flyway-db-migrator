@@ -1,0 +1,5 @@
+micronaut:
+  application:
+    name: lambda-flyway-db-migrator
+  config-client:
+    enabled:  ${AWS_SECRET_MANAGER_ENABLED:`false`}

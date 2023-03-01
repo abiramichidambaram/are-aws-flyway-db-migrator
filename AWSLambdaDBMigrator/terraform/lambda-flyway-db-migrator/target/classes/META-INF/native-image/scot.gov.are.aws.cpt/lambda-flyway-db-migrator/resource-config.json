@@ -1,0 +1,21 @@
+{
+  "resources" : [ {
+    "pattern" : "\\Qdb/migration/V1677494757__createTables.sql\\E"
+  }, {
+    "pattern" : "\\Qlogback.xml\\E"
+  }, {
+    "pattern" : "\\Qdb/migration/V1677494680__createDB.sql\\E"
+  }, {
+    "pattern" : "\\Qdb/migration/V1677494725__createUsers.sql\\E"
+  }, {
+    "pattern" : "\\Qdb/migration/V1677494746__alterUsers.sql\\E"
+  }, {
+    "pattern" : "\\Qdb/migration/V1677494800__insertData.sql\\E"
+  }, {
+    "pattern" : "\\Qbootstrap.yml\\E"
+  }, {
+    "pattern" : "\\Qapplication.yml\\E"
+  }, {
+    "pattern" : "\\Qdb/migration/V1677494690__createRoles.sql\\E"
+  } ]
+}
